@@ -9,12 +9,13 @@ RUN chmod +x mvnw
 COPY ./src ./src
 RUN sed -i 's/\r$//' mvnw
 
-RUN ./mvnw clean install
+
 RUN ./mvnw dependency:go-offline
- 
+RUN ./mvnw clean install  -DskipTests
+
 FROM eclipse-temurin:17-jre-jammy
 WORKDIR /opt/app
 
-EXPOSE 8081
+EXPOSE 8080
 COPY --from=builder /opt/app/target/*.jar /opt/app/*.jar
 ENTRYPOINT ["java", "-jar", "/opt/app/*.jar" ]

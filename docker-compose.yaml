@@ -74,6 +74,9 @@ services:
 
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/one_room_chat_app
+      - DB_HOSTNAME=postgres
+      - DB_PORT=5432
+      - DB_DATABASE=one_room_chat_app
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=postgres
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka1:19092
@@ -98,6 +101,9 @@ services:
 
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/one_room_chat_app
+      - DB_HOSTNAME=postgres
+      - DB_PORT=5432
+      - DB_DATABASE=one_room_chat_app
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=postgres
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka1:19092

@@ -9,9 +9,10 @@ RUN chmod +x mvnw
 COPY ./src ./src
 RUN sed -i 's/\r$//' mvnw
 
-RUN ./mvnw clean install
+
 RUN ./mvnw dependency:go-offline
- 
+RUN ./mvnw clean install
+
 FROM eclipse-temurin:17-jre-jammy
 WORKDIR /opt/app
 
