@@ -19,7 +19,7 @@ export const registerUser = async (fullName, username, password) => {
     password,
   };
   const response = await client.post("/auth/signup", requestBody);
-  if (response.status === 200) {
+  if (response.status === 200 || response.status === 202) {
     return { success: true, message: response.data.msg };
   } else {
     throw new Error(response.data.msg);
